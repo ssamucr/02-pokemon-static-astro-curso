@@ -36,14 +36,14 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 
 <MainLayout title={title}>
   <section class="mt-10 mx-10 flex flex-col justify-center items-center">
-    <div>
+    <div transition:animate="slide">
       <a href="/">Regresar</a>
       <h1 class="text-5xl capitalize">{name}</h1>
     </div>
 
     <PokemonCard name={name} url={url} isBig />
 
-    <audio controls>
+    <audio controls transition:animate="slide">
       <source src={audioSrc} type="audio/ogg" />
       Your browser does not support the audio element.
     </audio>

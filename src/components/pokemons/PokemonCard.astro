@@ -16,10 +16,18 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
   href={`/pokemons/${name}`}
   id={name}
   class:list={[
-    "rounded flex flex-col justify-center items-center p-2 hover:bg-slate-600 transition-colors cursor-pointer",
-    isBig ? "" : "bg-slate-700",
+    "rounded flex flex-col justify-center items-center p-2 transition-colors",
+    isBig ? "cursor-default" : "bg-slate-700 hover:bg-slate-600 cursor-pointer",
   ]}
 >
-  <img class={isBig ? "w-96 h-96" : "w-16 h-16"} src={imageSrc} alt={name} />
-  <span class={`capitalize ${isBig ? "text-4xl" : "text-base"}`}>#{id} {name}</span>
+  <img
+    class={isBig ? "w-96 h-96" : "w-32 h-32"}
+    src={imageSrc}
+    alt={name}
+    transition:name={`pokemon-image-${name}`}
+  />
+  <span
+    class={`capitalize ${isBig ? "text-4xl" : "text-base"}`}
+    transition:name={`pokemon-name-${name}`}>#{id} {name}</span
+  >
 </a>
