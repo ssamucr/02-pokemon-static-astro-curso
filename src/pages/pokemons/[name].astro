@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const { name } = Astro.params as { name: string };
+
+const title = `Pokemon static | ${name}`;
+
+export const getStaticPaths = (() => {
+    
+    return [{
+        params: {
+            name: "bulbasaur"
+        }
+    }];
+}) satisfies GetStaticPaths;
+
+---
+
+<MainLayout title={title}>
+  <h1 class="text-3xl">{name}</h1>
+</MainLayout>
