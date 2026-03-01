@@ -11,19 +11,17 @@ const title = `Pokemon static | ${name}`;
 
 export const getStaticPaths = (async () => {
   const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-  const { results } = await resp.json() as PokemonListResponse;
+  const { results } = (await resp.json()) as PokemonListResponse;
 
-  const staticPaths = results.map((pokemon) => (
-    {
-        params: {
-            name: pokemon.name,
-        },
-        props: {
-            name: pokemon.name,
-            url: pokemon.url,
-        }
-    }
-  ));
+  const staticPaths = results.map((pokemon) => ({
+    params: {
+      name: pokemon.name,
+    },
+    props: {
+      name: pokemon.name,
+      url: pokemon.url,
+    },
+  }));
 
   return staticPaths;
 }) satisfies GetStaticPaths;
@@ -35,10 +33,10 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 ---
 
 <MainLayout title={title}>
-  <section class="mt-10 mx-10 flex flex-col justify-center items-center">
-    <div transition:animate="slide">
-      <a href="/">Regresar</a>
-      <h1 class="text-5xl capitalize">{name}</h1>
+  <section class="mt-10 m-auto flex flex-col justify-center items-center">
+    <div transition:animate="slide" class="w-full">
+      <a href="/" class="rounded">Regresar</a>
+      <h1 class="text-5xl capitalize text-center">{name}</h1>
     </div>
 
     <PokemonCard name={name} url={url} isBig />
@@ -52,7 +50,9 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 
 <style>
   a {
-    color: #3b82f6;
+    color: #ffffff;
+    padding: 0.5rem;
+    background-color: #3b82f6;
   }
 
   a:hover {
