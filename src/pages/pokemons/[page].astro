@@ -32,17 +32,31 @@ const { page } = Astro.props;
   </section>
 
   <section class="flex mt-10 gap-2 items-center">
-    <a href={page.url.first} class="btn">Primero {page.url.first ? page.url.first.split("/").pop() : 1}</a>
-    
-    <a href={page.url.prev} class="btn">Anterior {page.url.prev ? page.url.prev.split("/").pop() : 1}</a>
+    <a href={page.url.first} class="btn"
+      >Primero {page.url.first ? page.url.first.split("/").pop() : ""}</a
+    >
 
-    <a href={page.url.next} class="btn">Siguiente {page.url.next ? page.url.next.split("/").pop() : ""}</a>
-    
-    <a href={page.url.last} class="btn">Último {page.url.last ? page.url.last.split("/").pop() : ""}</a>
+    <a
+      href={page.url.prev}
+      class:list={["btn", page.url.prev ? "" : "disabled"]}
+      >Anterior {page.url.prev ? page.url.prev.split("/").pop() : ""}</a
+    >
+
+    <a
+      href={page.url.next}
+      class:list={["btn", page.url.next ? "" : "disabled"]}
+      >Siguiente {page.url.next ? page.url.next.split("/").pop() : ""}</a
+    >
+
+    <a href={page.url.last} class="btn"
+      >Último {page.lastPage ? page.lastPage : ""}</a
+    >
 
     <div class="flex flex-1"></div>
 
-    <span>Página {page.url.current ? page.url.current.split("/").pop() : ""}</span>
+    <span class="text-xl font-bold"
+      >Página {page.currentPage ? page.currentPage : ""}</span
+    >
   </section>
 </MainLayout>
 
