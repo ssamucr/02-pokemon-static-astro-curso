@@ -7,8 +7,6 @@ import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 
 const { name } = Astro.params as { name: string };
 
-const title = `Pokemon static | ${name}`;
-
 export const getStaticPaths = (async () => {
   const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
   const { results } = (await resp.json()) as PokemonListResponse;
@@ -30,9 +28,13 @@ const { url } = Astro.props as { url: string };
 
 const id = url.split("/").filter(Boolean).pop() as string;
 const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
+const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+
+const title = `Pokemon static | #${id} ${name}`;
+const description = `Detalles del pokemon ${name}`;
 ---
 
-<MainLayout title={title}>
+<MainLayout title={title} description={description} image={imageSrc}>
   <section class="mt-10 m-auto flex flex-col justify-center items-center">
     <div transition:animate="slide" class="w-full">
       <a href="/" class="rounded">Regresar</a>
