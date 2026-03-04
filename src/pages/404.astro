@@ -1,0 +1,47 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+---
+
+<MainLayout title="Pokemon static | 404 Not Found">
+  <style>
+    body {
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    h1 {
+      font-size: 5em;
+      color: #ef5350;
+    }
+    .missing-image {
+      max-width: 250px;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+    .go-back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #42a5f5;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+
+  <div class="container">
+    <h1>404</h1>
+    <h2>Wild PAGE appeared!</h2>
+    <p>It ran away...</p>
+    <img
+      src="https://wallpapers.com/images/high/sleeping-pixel-snorlax-png-e6lgjtnli5gyzjz6-e6lgjtnli5gyzjz6.png"
+      alt="MissingNo"
+      class="missing-image"
+    />
+    <br />
+    <a href="/" class="go-back-button">Go Back to Safety</a>
+  </div>
+</MainLayout>
