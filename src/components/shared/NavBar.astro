@@ -15,15 +15,21 @@ const currentPath = Astro.url.pathname;
   >
     {
       links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6",
-            currentPath == link.href ? "border-b-2 border-blue-500" : "",
-          ]}
-        >
-          {link.name}
-        </a>
+        <div>
+          <a
+            href={link.href}
+            class="text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6"
+          >
+            {link.name}
+          </a>
+
+          {
+            link.href == currentPath ?
+            <div class="border-b-2 border-blue-500 mx-4" transition:name="navbar-active"></div>
+            : ""
+          }
+          
+        </div>
       ))
     }
   </div>
