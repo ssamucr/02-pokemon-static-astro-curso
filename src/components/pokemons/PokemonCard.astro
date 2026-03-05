@@ -9,7 +9,7 @@ const { name, url, isBig = false } = Astro.props as Props;
 
 const id = url.split("/").filter(Boolean).pop() as string;
 
-const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+const imageSrc = '#'// `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 ---
 
 <!-- href={`/pokemon/${id}`} -->
