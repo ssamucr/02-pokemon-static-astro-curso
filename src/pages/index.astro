@@ -2,24 +2,28 @@
 import MainLayout from "@layouts/MainLayout.astro";
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
+import Title from "@components/shared/Title.astro";
 
-// const resp = await fetch("https://pokeapi.co/api/v2/pokemon/");
+const resp = await fetch("https://pokeapi.co/api/v2/pokemon/");
 
-// const data = await resp.json() as PokemonListResponse;
+const data = (await resp.json()) as PokemonListResponse;
 
-// const pokemons = data.results as { name: string; url: string }[];
+const pokemons = data.results as { name: string; url: string }[];
 
 const title = "Pokemon static | Home";
 ---
 
 <MainLayout title={title}>
-  <h1 class="text-3xl">Listado de pokemons</h1>
-  <hr />
+  <Title> Listado de pokemons </Title>
 
   <section
     aria-label="Listado de pokemons"
-    class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-5"
+    class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-5 mx-4"
   >
-    <!-- {pokemons.map((pokemon) => (<PokemonCard name={pokemon.name} url={pokemon.url} />))} -->
+    {
+      pokemons.map((pokemon) => (
+        <PokemonCard name={pokemon.name} url={pokemon.url} />
+      ))
+    }
   </section>
 </MainLayout>

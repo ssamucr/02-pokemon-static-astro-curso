@@ -23,12 +23,16 @@ const currentPath = Astro.url.pathname;
             {link.name}
           </a>
 
-          {
-            link.href == currentPath ?
-            <div class="border-b-2 border-blue-500 mx-4" transition:name="navbar-active"></div>
-            : ""
-          }
-          
+          {link.href == currentPath ? (
+            <div
+              class="border-b-2 border-blue-500 mx-4"
+              transition:name="navbar-line"
+            />
+          ) : (
+            <div
+              class="border-b-2 border-transparent mx-4"
+            />
+          )}
         </div>
       ))
     }

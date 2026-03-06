@@ -4,6 +4,9 @@ import MainLayout from "@layouts/MainLayout.astro";
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
 
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
+import Title from "@components/shared/Title.astro";
+
+import { Icon } from "astro-icon/components";
 
 const { name } = Astro.params as { name: string };
 
@@ -36,9 +39,20 @@ const description = `Detalles del pokemon ${name}`;
 
 <MainLayout title={title} description={description} image={imageSrc}>
   <section class="mt-10 m-auto flex flex-col justify-center items-center">
-    <div transition:animate="slide" class="w-full">
-      <a href="/" class="rounded">Regresar</a>
-      <h1 class="text-5xl capitalize text-center">{name}</h1>
+    <div class="flex flex-row">
+      <div transition:animate="slide" class="w-full">
+        <button
+          onclick="window.history.back()"
+          class="rounded bg-blue-500 p-2 text-white cursor-pointer mb-2"
+          >Regresar</button
+        >
+        <Title>{name}</Title>
+      </div>
+
+      <button id="btn-favorite" class="ml-4 hover:animate-pulse cursor-pointer">
+        <Icon name="heart-outline" size={45} />
+        <Icon class="hidden" name="heart-full" size={45} />
+      </button>
     </div>
 
     <PokemonCard name={name} url={url} isBig />
@@ -59,5 +73,9 @@ const description = `Detalles del pokemon ${name}`;
 
   a:hover {
     text-decoration: underline;
+  }
+
+  #btn-favorite {
+    color: #d64b4b;
   }
 </style>
