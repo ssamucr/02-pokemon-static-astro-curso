@@ -109,12 +109,14 @@ const description = `Detalles del pokemon ${name}`;
     const name = btnFavorite.dataset.name as string;
     const id = parseInt(btnFavorite.dataset.id as string, 10);
 
+    const isFavorite = favoritePokemons.some((pokemon) => pokemon.id === id);
+
     const heartOutline = btnFavorite.querySelector(
       "[data-outline]",
     ) as HTMLElement;
     const heartFull = btnFavorite.querySelector("[data-full]") as HTMLElement;
 
-    if (favoritePokemons.some((pokemon) => pokemon.id === id)) {
+    if (isFavorite) {
       heartOutline.classList.add("hidden");
       heartFull.classList.remove("hidden");
     }
@@ -130,7 +132,10 @@ const description = `Detalles del pokemon ${name}`;
         favoritePokemons.push({ id, name });
       }
 
-      localStorage.setItem("favoritesPokemon", JSON.stringify(favoritePokemons));
+      localStorage.setItem(
+        "favoritesPokemon",
+        JSON.stringify(favoritePokemons),
+      );
     };
 
     btnFavorite.addEventListener("click", () => {
