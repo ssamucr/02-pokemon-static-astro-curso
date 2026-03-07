@@ -1,10 +1,10 @@
 ---
 const links = [
   { name: "Listado", href: "/" },
-  { name: "Paginado", href: "/pokemons/1" },
-  { name: "Favoritos", href: "/favorites" },
-  { name: "Islas 1", href: "/islands/island1" },
-  { name: "Islas 2", href: "/islands/island2" },
+  { name: "Paginado", href: "/pokemons/1/" },
+  { name: "Favoritos", href: "/favorites/" },
+  { name: "Islas 1", href: "/islands/island1/" },
+  { name: "Islas 2", href: "/islands/island2/" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -35,6 +35,7 @@ const currentPath = Astro.url.pathname;
               class="border-b-2 border-transparent mx-4"
             />
           )}
+          
         </div>
       ))
     }
