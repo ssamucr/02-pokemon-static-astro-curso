@@ -86,10 +86,7 @@ const description = `Detalles del pokemon ${name}`;
 </style>
 
 <script>
-  interface FavoritePokemon {
-    id: number;
-    name: string;
-  }
+  import type { FavoritePokemon } from "@interfaces/favorite-pokemon";
 
   const handlePageLoad = () => {
     let favoritePokemons: FavoritePokemon[] = JSON.parse(

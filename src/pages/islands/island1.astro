@@ -1,0 +1,48 @@
+---
+import { Counter } from "@components/Counter";
+import Title from "@components/shared/Title.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const counterValue = 0;
+---
+
+<MainLayout title="Pokemon static | Islas">
+  <Title>Islas</Title>
+
+  <video controls muted autoplay transition:persist>
+    <source
+      src="https://ia804502.us.archive.org/33/items/GoldenGa1939_3/GoldenGa1939_3_512kb.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <!-- <iframe transition:persist="playing-video" class="w-full aspect-video"
+    src="https://www.youtube.com/embed/GpPUa7Red1M?si=UvIozrqpJ4wLpfKm&controls=0&autoplay=1"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe> -->
+
+  <div
+    style={{
+      height: "2000px",
+      backgroundColor: "rgba(255, 255, 255, 0.3)",
+      padding: "1rem",
+    }}
+  >
+    <p class="text-black text-2xl">
+      Espacio de separación para mostrar que el contador se carga solo cuando es
+      visible.
+    </p>
+  </div>
+
+  <Counter
+    transition:persist="counter"
+    transition:persist-props
+    client:visible
+    initialValue={counterValue}
+  >
+    <Title>Counter Island</Title>
+  </Counter>
+</MainLayout>

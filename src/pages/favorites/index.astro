@@ -1,11 +1,11 @@
 ---
+import { FavoritePokemons } from "@components/pokemons/FavoritePokemons";
 import Title from "@components/shared/Title.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Favoritos">
-  <Title>Pokemon Favoritos</Title>
-  <p class="text-lg text-slate-300">
-    Aquí puedes encontrar una lista de tus Pokemon favoritos.
-  </p>
+<MainLayout title="Pokemon static | Favoritos">
+  <Title>Pokemon favoritos</Title>
+
+  <FavoritePokemons client:only="solid-js"></FavoritePokemons>
 </MainLayout>
